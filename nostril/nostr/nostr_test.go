@@ -34,12 +34,8 @@ func TestNIP_44(t *testing.T) {
 		log.Fatal("Event signature is invalid")
 	}
 	// Send event to relay
+	go ListenToRelay(senderPubKey, receiverPrivKey, receiverPubKey)
 	sendEvent(event)
 	// Simulate receiving event and decrypting message
-	receivedEventJson, _ := event.MarshalJSON()
-	decryptMessage, err := receiveAndDecrypt(string(receivedEventJson), receiverPrivKey)
-	if err != nil {
-		log.Fatal("Error decrypting message:", err)
-	}
-	fmt.Println("Decrypted message:", decryptMessage)
+	select {}
 }
