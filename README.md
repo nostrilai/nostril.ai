@@ -1,15 +1,18 @@
-# Nostril.ai - Private AI
+# Nostril.ai - Distributed Private AI using Nostr and the Lightning Network for payments.
 
-## **Overview**
-This system enables **secure, private AI queries** on a **network of NVIDIA H100 GPU nodes** using **Nostr for messaging** and **Lightning Network for payments**. 
+To provide the world cost-effective private AI with world class AI models, nostril.ai combines: 
+* Users use an open Nostr P2P Network to submit and interact with GPU nodes holding Private AI models, using a Nostr and Bitcoin wallet.  All queries in the network are encrypted for security.
+* NVIDIA Confidential Computing: GPU nodes operate within Trusted Execution Environments (TEEs).  Before processing a query, a GPU node provides a cryptographic attestation to confirm it is running in a secure environment with the correct AI model. This attestation is verified by users, ensuring the node's integrity before accepting the computation results. 
+* The Lightning Network is a Layer 2 solution built atop the Bitcoin blockchain, designed to facilitate fast, low-cost, and private transactions. In the context of nostril.ai, it enables users to pay for AI query processing efficiently.
 
-It ensures:
+
+Key Features:
 - **Verifiable AI Execution**: Users request a specific **LLM model** (e.g., `stanford-s1`), and GPU nodes **must cryptographically prove** they ran the requested model.
 - **Tamperproof Execution**: Queries and responses are **encrypted end-to-end**.
 - **Decentralized Reputation System**: Users can **flag fraudulent nodes** and **approve trusted nodes**.
 - **Private Payments**: Lightning transactions are processed **without public Zap receipts**.
 
----
+The key interactions are detailed below:
 
 ## **1. User Submits Encrypted Query (With AI Model Requirement)**
 
