@@ -3,7 +3,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { Relay } from "nostr-tools";
 import { generateKeyPair, encryptMessage, decryptMessage, createEvent_nip44, sendEvent } from "./nostrUtils.js";
-
+import fs from 'fs';
+import path from 'path';
 // Set up Express API
 const app = express();
 app.use(cors());
@@ -28,7 +29,9 @@ async function startListening() {
                 console.log("📩 Received encrypted message:", event);
                 const senderPubKey = event.pubkey;
                 const encryptedMessage = event.content;
-
+                // save the event json to a file
+                const filePath = path.join("./", 'event.json');
+                fs.writeFileSync(filePath, JSON.stringify(event, null, 2));
                 try {
                     // **確保 `decryptMessage` 使用 `await`**
                     const decryptedMessage = await decryptMessage(bot.privateKey, senderPubKey, encryptedMessage);

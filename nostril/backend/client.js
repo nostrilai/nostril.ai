@@ -9,7 +9,7 @@ console.log("📝 Public Key:", user.publicKey);
 console.log("🔒 Private Key:", user.privateKey);
 
 // **Nostr bot public key (Replace with the actual bot's public key)**
-const botPublicKey = "c418821caf6b8006ea57ea9171c7f74e1b684e24b953ec5bb757294d515cb973"; // Replace with actual bot key
+const botPublicKey = "e4a56fd60e53bf5ebbd7ca36517cd659c7edbd489c0c84ca4ef069409970c6cd"; // Replace with actual bot key
 
 async function sendMessage() {
     const relay = new Relay("wss://relay.damus.io");
